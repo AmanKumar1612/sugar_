@@ -1,0 +1,21 @@
+from sqlalchemy.orm import Session
+
+from app.models.user import User
+
+
+class UserRepository:
+
+    @staticmethod
+    def get_by_email(db: Session, email: str) -> User | None:
+        return (
+            db.query(User)
+            .filter(User.email == email)
+            .first()
+        )
+
+    @staticmethod
+    def verify_email(db: Session, user: User) -> User:
+        user.is_verified = True
+        db.commit()
+        db.refresh(user)
+        return user

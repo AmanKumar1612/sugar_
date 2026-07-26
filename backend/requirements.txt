@@ -1,0 +1,52 @@
+fastapi==0.137.1
+uvicorn[standard]==0.49.0
+
+# Database
+sqlalchemy==2.0.51
+psycopg2-binary==2.9.12
+alembic==1.18.4
+
+# Settings & Validation
+pydantic[email]==2.13.4
+pydantic-settings==2.14.1
+python-dotenv==1.2.2
+
+# Authentication
+python-jose[cryptography]==3.5.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+
+# Forms
+python-multipart==0.0.32
+
+# HTTP
+httpx==0.28.1
+requests==2.34.2
+
+# Gemini
+google-genai==1.38.0
+
+# Vector Database
+qdrant-client>=1.16,<2.0
+
+# Text Chunking
+langchain-text-splitters==1.1.2
+
+# Web Scraping
+beautifulsoup4==4.15.0
+
+# PDF parsing (no OCR binary required)
+PyMuPDF==1.27.2.3
+
+# Web Search
+tavily-python==0.7.26
+
+# Email
+email-validator
+
+# Auth
+google-auth==2.40.3
+google-auth-oauthlib==1.2.2
+
+# Rate Limiting
+slowapi==0.1.9
