@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  backend:
+    build: ./backend
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - '8000:8000'
+    environment:
+      DATABASE_URL: sqlite:///./sugarcane.db
+      JWT_SECRET_KEY: change-me
+      EMBEDDING_MODEL: sentence-transformers/all-MiniLM-L6-v2
+      CHROMA_PATH: ./chroma_db
+      ADMIN_SECRET_KEY: sugarcane-admin-2026
+    volumes:
+      - ./backend:/app
+  frontend:
+    build: ./frontend/vite-project
+    command: npm run dev -- --host 0.0.0.0
+    ports:
+      - '5173:5173'
+    environment:
+      VITE_API_URL: http://localhost:8000
+    volumes:
+      - ./frontend/vite-project:/app
